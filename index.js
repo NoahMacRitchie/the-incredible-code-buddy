@@ -23,12 +23,6 @@ client.on('message', message => {
 	const args = message.content.slice(prefix.length).trim().split(/ +/);
 	const command = args.shift().toLowerCase();
 
-    if (command === 'ping') {
-		const timeTaken = Date.now() - message.createdTimestamp;
-		message.reply(`Pong! This message had a latency of ${timeTaken}ms.`);
-        return;
-	}
-
 	if (!client.commands.has(command)) return;
 
 	try {
