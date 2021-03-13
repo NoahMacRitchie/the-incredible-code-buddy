@@ -31,25 +31,6 @@ client.on('message', message => {
 		console.error(error);
 		message.reply('there was an error trying to execute that command!');
 	}
-
-	if (command === 'diceroll') {
-		console.log(args);
-
-		if (args[0] && args[1]) {
-			for (let i = 0; i < args[0]; i++) {
-				message.channel.send(rollDice(args[1]));
-			}
-		} else if (args[0]) {
-			message.channel.send(rollDice(args[0]));
-		} else {
-			message.channel.send(rollDice(6));
-		}
-	}
 });
-
-function rollDice(x) {
-	console.log("Rolling: " + x);
-	return Math.ceil(Math.random() * x);
-}
 
 client.login(config.BOT_TOKEN);
