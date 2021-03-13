@@ -16,9 +16,9 @@ async function quickstart(statement) {
     
     let evaluation;
     let percentage = Math.round((sentiment.score + 1) * 50);
-    if (sentiment.score > 75 && sentiment.score <= 100)
+    if (percentage > 75 && percentage <= 100)
       evaluation = "Great message! ";
-    else if (sentiment.score < 25 && sentiment.score > 0)
+    else if (percentage < 25 && percentage > 0)
       evaluation ="That is inappropriate ";
     else
       evaluation = "Seems okay to post. ";
