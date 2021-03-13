@@ -1,31 +1,37 @@
-async function quickstart() {
+async function quickstart(statement) {
     // Imports the Google Cloud client library
     const language = require('@google-cloud/language');
   
     // Instantiates a client
     const client = new language.LanguageServiceClient();
   
-    // The text to analyze
-    const text = 'stupid idiot';
-  
     const document = {
-      content: text,
+      content: statement,
       type: 'PLAIN_TEXT',
     };
   
     // Detects the sentiment of the text
     const [result] = await client.analyzeSentiment({document: document});
     const sentiment = result.documentSentiment;
-  
-    console.log(`Text: ${text}`);
-    console.log(`Sentiment score: ${sentiment.score}`);
-    console.log(`Sentiment magnitude: ${sentiment.magnitude}`);
+    
+    let evaluation;
+    let percentage = Math.round((sentiment.score + 1) * 50);
+    if (sentiment.score > 75 && sentiment.score <= 100)
+      evaluation = "Great message! ";
+    else if (sentiment.score < 25 && sentiment.score > 0)
+      evaluation ="That is inappropriate ";
+    else
+      evaluation = "Seems okay to post. ";
+    return evaluation + `(${percentage}%)`;
   }
 
 module.exports = {
     name: 'mod',
     description: 'Mod!',
-    execute(message) {
-      
+    execute(message, args) {
+      let statement = args.join(' ');
+      quickstart(statement).then((comment) => {
+        message.channel.send(comment);
+      });
     }
 }

@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/NoahMacRitchie/BCIT-BOT#readme",
   "dependencies": {
+    "@google-cloud/language": "^4.2.2",
     "discord.js": "^12.5.1"
   }
 }
