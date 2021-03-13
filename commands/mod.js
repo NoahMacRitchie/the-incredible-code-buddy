@@ -22,4 +22,10 @@ async function quickstart() {
     console.log(`Sentiment magnitude: ${sentiment.magnitude}`);
   }
 
-  const start = quickstart();
+module.exports = {
+    name: 'mod',
+    description: 'Mod!',
+    execute(message) {
+      
+    }
+}
