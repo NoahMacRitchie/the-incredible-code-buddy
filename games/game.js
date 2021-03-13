@@ -1,43 +1,48 @@
 class Game {
-    constructor(players) {
-        this.players = players
-    }
-    
-    newInstance() {
-        throw 'Not implemented';
-    }
+  constructor(players) {
+    this.players = players;
+  }
+
+  newInstance() {
+    throw new Error('Not implemented');
+  }
 }
 
 class GameInstance {
-    constructor(players) {
-        this.players = players
-    }
+  constructor(players) {
+    this.players = players;
+  }
 
-    applyAction(action) {
-        throw 'Not implemented';
-    }
+  isTerminal() {
+    throw new Error('Not implemented');
+  }
 
-    isTerminal() {
-        throw 'Not implemented';
-    }
+  legalActions() {
+    throw new Error('Not implemented');
+  }
 
-    legalActions() {
-        throw 'Not implemented';
-    }
+  /* eslint-disable no-unused-vars */
+  messageToAction(message) {
+    // eslint-disable-line no-unused-vars
+    throw new Error('Not implemented');
+  }
 
-    messageToAction(message) {
-        throw 'Not implemented';
-    }
-    
-    stateInformation() {
-        throw 'Not implemented';
-    }
+  applyAction(action) {
+    // eslint-disable-line no-unused-vars
+    throw new Error('Not implemented');
+  }
+  /* eslint-enable no-unused-vars */
 
-    getCurrentPlayer() {
-        throw 'Not implemented';
-    }
+  stateInformation() {
+    throw new Error('Not implemented');
+  }
+
+  getCurrentPlayer() {
+    throw new Error('Not implemented');
+  }
 }
 
 module.exports = {
-    Game, GameInstance
-}
+  Game,
+  GameInstance,
+};
