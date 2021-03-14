@@ -1,4 +1,4 @@
-# The Incredible Code Buddy
+# The Incredible Code Buddy - TICB
 
 ![Profile Picture](https://cdn.discordapp.com/attachments/820141818712293379/820685725585637416/unknown.png)
 
@@ -14,7 +14,7 @@
 
 ###### `- A wonderful quote from a lovely instructor.`
 
-Code Buddy offers BCIT students an opportunity to take part in an open-sourced project in order to practice software development and online collaboration through Git. It can be tricky to use Git, so this project provides that perfect chance. You can find detailed instructions that guide you through basic Git workflows in our `README` documentation!
+TICB offers BCIT students an opportunity to take part in an open-sourced project in order to practice software development and online collaboration through Git. It can be tricky to use Git, so this project provides that perfect chance. You can find detailed instructions that guide you through basic Git workflows in our `README` documentation!
 
 ### Why a Discord Bot?
 ![<img src="image.png" width="100"/>](https://cdn.discordapp.com/attachments/820540696418189312/820690082301870130/unknown.png )
