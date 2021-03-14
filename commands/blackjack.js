@@ -45,10 +45,14 @@ module.exports = {
       }
       return;
     }
+    const instance = STATE.Blackjack?.getGame(message.channel.id, message.author.id);
+    if (instance == null) {
+      message.reply(`Please start a game first! Try '!blackjack'.`);
+      return;
+    }
     switch (args[0]) {
       case 'hit':
       case 'stay': 
-        const instance = STATE.Blackjack.getGame(message.channel.id, message.author.id);
         gameAction(message, args);
         message.reply(instance.stateInformation());
 

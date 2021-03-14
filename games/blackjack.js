@@ -133,7 +133,6 @@ class BlackjackInstance extends GameInstance {
     }
 
     messageToAction(message) {
-        console.log(message)
         switch(message) {
             case 'hit':
                 this.playerMove = 0;

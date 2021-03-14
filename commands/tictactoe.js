@@ -38,21 +38,34 @@ module.exports = {
   name: 'ttt',
   description: 'Tic tac toe!',
   execute(message, args) {
+    if (Array.from(message.mentions.users.keys()).length === 2) {
+      gameStart(message);
+      message.reply('Tic Tac Toe started!');
+      const instance = STATE.TicTacToe.getGame(message.channel.id, message.author.id);
+      message.channel.send(instance.stateInformation());
+      if (instance.isTerminal()) {
+        gameEnd(message);
+      }
+      return;
+    }
+
+    const instance = STATE.TicTacToe?.getGame(message.channel.id, message.author.id);
+    if (instance == null) {
+      message.reply(`Please start a game first! Try '!ttt @<UserID> @<UserID>'.`);
+      return;
+    }
+
     switch (args[0]) {
-      case 'start':
-        gameStart(message);
-        message.channel.send('Game started!');
-        break;
       case 'a':
       case 'action':
         gameAction(message, args);
-        message.channel.send(STATE.TicTacToe.getGame(message.channel.id, message.author.id).stateInformation());
-
-        if (STATE.TicTacToe.getGame(message.channel.id, message.author.id).isTerminal()) {
+        message.channel.send(instance.stateInformation());
+        if (instance.isTerminal()) {
           gameEnd(message);
         }
         break;
       default:
+        message.reply(`That's not a valid move! Try '!ttt action <Position>'.`);
         break;
     }
   },

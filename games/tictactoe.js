@@ -18,7 +18,7 @@ class TicTacToe extends Game {
 class TicTacToeInstance extends GameInstance {
     constructor(players) {
         super(players);
-        this.board = ['-', '-', '-', '-', '-', '-', '-', '-', '-']
+        this.board = [' ', ' ', ' ', ' ' , ' ', ' ', ' ', ' ', ' ']
         this.symbols = ['X', 'O']
         this.currentPlayer = 0;
         this.numPlayers = this.players.length
@@ -29,7 +29,7 @@ class TicTacToeInstance extends GameInstance {
             throw 'Invalid action!';
         }
 
-        if (this.board[action] != '-') {
+        if (this.board[action] != ' ') {
             throw 'Invalid action!';
         }
 
@@ -38,14 +38,54 @@ class TicTacToeInstance extends GameInstance {
     }
 
     isTerminal() {
-        if (this.board.includes('-')) {
-            return false;
+        const combinations = [
+            [0, 1, 2],
+            [3, 4, 7],
+            [6, 7, 8],
+            [0, 4, 8],
+            [2, 4, 6],
+            [0, 3, 6],
+            [1, 4, 7],
+            [2, 5, 8],
+        ]
+        let isGameOver = false;
+        combinations.forEach((combination) => {
+            const boardCombination = combination.map((location) => {
+                return this.board[location];
+            })
+
+            if (boardCombination[0] !== ' ' &&
+                boardCombination[0] === boardCombination[1] &&
+                boardCombination[1] === boardCombination[2]) {
+                isGameOver = true;
+            }
+        })
+        if (isGameOver) {
+            return true;
         }
-        return true;
+
+        if (!this.board.includes(' ')) {
+            return true;
+        }
+
+        return false;
     }
 
     stateInformation() {
-        return JSON.stringify(this.board);
+        let output = '```';
+        this.board.forEach((tile, index) => {
+            if ((index + 1) % 3 === 0) {
+                output = `${output} ${tile} \n`;
+                if (index != 8) {
+                    output = `${output}-----------\n`;
+                }
+            }
+            else {
+                output = `${output} ${tile} |`;
+            }
+        });
+        output = `${output}\`\`\``
+        return output;
     }
 
     messageToAction(message) {
