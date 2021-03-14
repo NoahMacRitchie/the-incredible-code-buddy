@@ -28,7 +28,7 @@ const gameAction = (message, args) => {
 
 const gameEnd = (message) => {
   delete STATE.Blackjack.getGame(message.channel.id, message.author.id);
-  message.channel.send("Game over.");
+  message.channel.send('Game over.');
 };
 
 module.exports = {
@@ -52,7 +52,7 @@ module.exports = {
     }
     switch (args[0]) {
       case 'hit':
-      case 'stay': 
+      case 'stay':
         gameAction(message, args);
         message.reply(instance.stateInformation());
 
