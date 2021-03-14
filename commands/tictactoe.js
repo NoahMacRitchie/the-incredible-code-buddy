@@ -36,7 +36,9 @@ const gameEnd = (message) => {
 
 module.exports = {
   name: 'ttt',
-  description: 'Tic tac toe!',
+  description: 'Play a game of TicTacToe with a friend',
+  help: '!ttt start [@player1] [@player2] - Starts a game of TicTacToe between player1 & player 2'
+  + '!ttt a [0-8] - Attempts to make move on a cell',
   execute(message, args) {
     if (Array.from(message.mentions.users.keys()).length === 2) {
       gameStart(message);
@@ -51,7 +53,7 @@ module.exports = {
 
     const instance = STATE.TicTacToe?.getGame(message.channel.id, message.author.id);
     if (instance == null) {
-      message.reply(`Please start a game first! Try '!ttt @<UserID> @<UserID>'.`);
+      message.reply('Please start a game first! Try \'!ttt @<UserID> @<UserID>\'.');
       return;
     }
 
@@ -65,7 +67,7 @@ module.exports = {
         }
         break;
       default:
-        message.reply(`That's not a valid move! Try '!ttt action <Position>'.`);
+        message.reply('That\'s not a valid move! Try \'!ttt action <Position>\'.');
         break;
     }
   },

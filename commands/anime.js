@@ -15,7 +15,8 @@ async function asyncTest(query) {
 
 module.exports = {
   name: 'anime',
-  description: 'Looks up anime.',
+  description: 'Looks up anime and returns relevent myanimelist.net page.',
+  help: 'Run !anime followed by the title of the anime you want to search up',
   execute(message, args) {
     // do not run if missing the API key
     if (!process.env.ANIME_API_KEY) return;
