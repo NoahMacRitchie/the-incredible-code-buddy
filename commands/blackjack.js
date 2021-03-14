@@ -1,14 +1,14 @@
-const { Blackjack } = require('../games/blackjack');
 const { MessageEmbed } = require('discord.js');
+const { Blackjack } = require('../games/blackjack');
 
 const embededBuilder = (message, content) => {
   const embed = new MessageEmbed();
   embed.setColor('#743873');
-  embed.setTitle(`Blackjack🃏`);
+  embed.setTitle('Blackjack🃏');
 
   embed.setAuthor(message.author.username, message.author.avatarURL());
   embed.addField(content, '\u200b');
-  
+
   embed.setTimestamp();
   return embed;
 };
@@ -30,7 +30,7 @@ const gameAction = (message, args) => {
   const discordId = instance.players[playerId];
 
   if (discordId !== message.author.id) {
-    message.reply(embededBuilder(message, `You're not in a game!`));
+    message.reply(embededBuilder(message, 'You\'re not in a game!'));
     return;
   }
 
@@ -45,7 +45,10 @@ const gameEnd = (message) => {
 
 module.exports = {
   name: 'blackjack',
-  description: 'Blackjack',
+  description: 'Play a game of black jack against the dealer',
+  help: '!blackjack - starts blackjack game'
+    + '!blackjack hit - dealer will give you another card (game must be started)'
+    + '!blackjack stay - dealer reveal their cards (game must be started)',
   execute(message, args) {
     if (args.length === 0) {
       gameStart(message);
@@ -58,7 +61,7 @@ module.exports = {
     }
     const instance = STATE.Blackjack?.getGame(message.channel.id, message.author.id);
     if (instance == null) {
-      message.reply(embededBuilder(message, `Please start a game first! Try '!blackjack'.`));
+      message.reply(embededBuilder(message, 'Please start a game first! Try \'!blackjack\'.'));
       return;
     }
     switch (args[0]) {
@@ -72,7 +75,7 @@ module.exports = {
         }
         break;
       default:
-        message.reply(embededBuilder(message, `That's not a valid move! Try '!blackjack hit' or '!blackjack stay'.`));
+        message.reply(embededBuilder(message, 'That\'s not a valid move! Try \'!blackjack hit\' or \'!blackjack stay\'.'));
     }
   },
 };
