@@ -1,4 +1,7 @@
 # The Incredible Code Buddy
+
+![Profile Picture](https://cdn.discordapp.com/attachments/820141818712293379/820685725585637416/unknown.png)
+
 ##### `TCIB, an open-sourced project to help students from BCIT.`
 
 - [Join our Discord server to try CodeBuddy](https://discord.gg/bhy2aEje)
