@@ -4,12 +4,11 @@ async function asyncTest(query) {
   const response = await fetch(`https://jikan1.p.rapidapi.com/search/anime?q=${query}`, {
     method: 'GET',
     headers: {
-      'x-rapidapi-key': '8d69a01ab6msh12c303aaa758294p1e6dbejsn58a357f66d91',
+      'x-rapidapi-key': process.env.ANIME_API_KEY,
       'x-rapidapi-host': 'jikan1.p.rapidapi.com',
     },
   });
   const blob = await response.json();
-  console.log(blob.results[0].url);
   const result = blob.results[0].url;
   return result;
 }
@@ -30,22 +29,6 @@ module.exports = {
         message.channel.send(test);
       });
     }
-
-    // Alternative fetch method instead of async.
-    // fetch("https://jikan1.p.rapidapi.com/search/anime?q=" + query, {
-    //   "method": "GET",
-    //   "headers": {
-    //     "x-rapidapi-key": "8d69a01ab6msh12c303aaa758294p1e6dbejsn58a357f66d91",
-    //     "x-rapidapi-host": "jikan1.p.rapidapi.com"
-    //   }
-    // })
-    // .then(response => response.json())
-    // .then(blob => {
-    //   message.channel.send(blob.results[0]["url"]);
-    // })
-    // .catch(err => {
-    //   console.error(err);
-    // });
   },
 };
 

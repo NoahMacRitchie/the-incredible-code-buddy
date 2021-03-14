@@ -33,7 +33,8 @@
   "dependencies": {
     "discord.js": "^12.5.1",
     "dotenv": "^8.2.0",
-    "eslint-config-airbnb": "^18.2.1"
+    "eslint-config-airbnb": "^18.2.1",
+    "node-fetch": "^2.6.1"
   },
   "devDependencies": {
     "eslint": "^7.22.0",
