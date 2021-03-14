@@ -31,6 +31,7 @@
   },
   "homepage": "https://github.com/NoahMacRitchie/BCIT-BOT#readme",
   "dependencies": {
+    "@google-cloud/language": "^4.2.2",
     "discord.js": "^12.5.1",
     "dotenv": "^8.2.0",
     "eslint-config-airbnb": "^18.2.1"
