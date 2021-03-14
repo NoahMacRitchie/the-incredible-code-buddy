@@ -4,7 +4,7 @@
 
 ##### `TCIB, an open-sourced project to help students from BCIT.`
 
-- [Join our Discord server to try CodeBuddy](https://discord.gg/bhy2aEje)
+- [Join our Discord server to try CodeBuddy](https://discord.gg/B7DhmCNMuh)
 - [Add CodeBuddy to your own server](https://discord.com/api/oauth2/authorize?client_id=820358332103131166&permissions=0&scope=bot)
 - [Report a bug](https://github.com/NoahMacRitchie/the-incredible-code-buddy/issues)
 - [Commands List](https://github.com/NoahMacRitchie/the-incredible-code-buddy/blob/master/docs/commands.md)
