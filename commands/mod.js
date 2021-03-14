@@ -1,12 +1,3 @@
-const fs = require('fs');
-
-const creds = {
-  type: 'service_account',
-  project_id: 'hack-break',
-  private_key: process.env.GOOGLE_PRIVATE_KEY,
-  client_email: process.env.GOOGLE_CLIENT_EMAIL,
-};
-
 async function quickstart(statement) {
   // Imports the Google Cloud client library
   const language = require('@google-cloud/language');
@@ -35,15 +26,9 @@ module.exports = {
   name: 'mod',
   description: 'Mod!',
   execute(message, args) {
-    fs.writeFile(process.env.GOOGLE_APPLICATION_CREDENTIALS, JSON.stringify(creds), (error) => {
-      if (error) {
-        console.log(error);
-      } else {
-        const statement = args.join(' ');
-        quickstart(statement).then((comment) => {
-          message.channel.send(comment);
-        });
-      }
+    const statement = args.join(' ');
+    quickstart(statement).then((comment) => {
+      message.channel.send(comment);
     });
   },
 };
