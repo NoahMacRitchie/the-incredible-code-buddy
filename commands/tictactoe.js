@@ -28,7 +28,7 @@ const gameStart = (message) => {
 };
 
 const gameAction = (message, args) => {
-  const instance = STATE.TicTacToe.getGame(message.channel.id, message.author.id);
+  const instance = STATE.TicTacToe.getGame(message.channel.id, message.author.id).gameInstance;
   const playerId = instance.getCurrentPlayer();
   const discordId = instance.players[playerId];
 
@@ -43,7 +43,11 @@ const gameAction = (message, args) => {
 };
 
 const gameEnd = (message) => {
-  delete STATE.TicTacToe.getGame(message.channel.id, message.author.id);
+  const opponent = STATE.TicTacToe.getGame(message.channel.id, message.author.id).opponent;
+
+  delete STATE.TicTacToe.getGame(message.channel.id, opponent).gameInstance;
+  delete STATE.TicTacToe.getGame(message.channel.id, message.author.id).gameInstance;
+
   message.channel.send(embededBuilder(message, 'Game over.'));
 };
 
@@ -53,10 +57,11 @@ module.exports = {
   help: '!ttt start [@player1] [@player2] - Starts a game of TicTacToe between player1 & player 2'
   + '!ttt a [0-8] - Attempts to make move on a cell',
   execute(message, args) {
-    if (Array.from(message.mentions.users.keys()).length === 2) {
+    const players = Array.from(message.mentions.users.keys());
+    if (players.length === 2) {
       gameStart(message);
-      message.reply('Tic Tac Toe started!');
-      const instance = STATE.TicTacToe.getGame(message.channel.id, message.author.id);
+      message.channel.send(`<@${players[0]}>, <@${players[1]}>, Tic Tac Toe started!`);
+      const instance = STATE.TicTacToe.getGame(message.channel.id, players[0]).gameInstance;
       message.channel.send(embededBuilder(message, instance.stateInformation()));
       if (instance.isTerminal()) {
         gameEnd(message);
@@ -64,9 +69,9 @@ module.exports = {
       return;
     }
 
-    const instance = STATE.TicTacToe?.getGame(message.channel.id, message.author.id);
+    const instance = STATE.TicTacToe?.getGame(message.channel.id, message.author.id)?.gameInstance;
     if (instance == null) {
-      message.reply(embededBuilder(message, 'Please start a game first! Try \'!ttt @<UserID> @<UserID>\'.'));
+      message.reply(embededBuilder(message, 'Please start a game first! Try \'!ttt <@UserID> <@UserID>\'.'));
       return;
     }
 
@@ -81,7 +86,7 @@ module.exports = {
         }
         break;
       default:
-        message.reply(embededBuilder(message, 'That\'s not a valid move! Try \'!ttt action <Position>\'.'));
+        message.reply(embededBuilder(message, 'That\'s not a valid move! Try \'!ttt action [0-8]\'.'));
         break;
     }
   },

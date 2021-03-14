@@ -7,10 +7,16 @@ class TicTacToe extends Game {
 
   newInstance(channel, players) {
     const gameInstance = new TicTacToeInstance(players);
-    players.forEach((player) => {
+    players.forEach((player, index) => {
       this._games[channel] = this._games[channel] || {};
-      this._games[channel][player] = gameInstance;
+      this._games[channel][player] = this._games[channel][player] || {};
+      const opponentId = this._games[channel][player].opponent;
+      delete this._games[channel][opponentId];
+      this._games[channel][player].gameInstance = gameInstance;
+      this._games[channel][player].opponent = players[(index+1) % 2];
     });
+    console.log(this._games);
+
     return gameInstance;
   }
 }
@@ -25,7 +31,7 @@ class TicTacToeInstance extends GameInstance {
   }
 
   applyAction(action) {
-    if (action < 0 || action > 9) {
+    if (action < 0 || action > 8) {
       throw new Error('Invalid action.');
     }
 
