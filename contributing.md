@@ -18,8 +18,8 @@ DISCORD_KEY=YOUR_API_KEY
 1. Clone the repo `git clone https://github.com/NoahMacRitchie/trevor-bot.git`
 1. Navigate into project directory `cd ./trevor-bot`
 1. Install npm dependencies `npm i`
-1. Make sure you have your DISCORD_API key is set in the `.env`
-1. Start node `node index.js`
+1. Make sure you have your `DISCORD_API` key is set in the `.env` file
+1. Start the server `node index.js`
 
 ## Contributing
 
