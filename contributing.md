@@ -27,7 +27,8 @@ DISCORD_KEY=YOUR_API_KEY
 1. Create your feature branch `git checkout -b feature/add-my-awesome-feature`
 1. Commit your changes `git commit -m 'added some awesome-feature'`
 1. Push your changes to your local branch `git push --set-upstream`
-1. Open a new pull request into NoahMacRitchie/trevor-bot/master
+1. Back on github, start a new pull request ![Pull](https://cdn.discordapp.com/attachments/820540696418189312/820554488226119700/unknown.png) 
+1. Make sure you choose `NoahMacRitchie/trevor-bot` as the base repository ![img](https://cdn.discordapp.com/attachments/820540696418189312/820554940783001610/unknown.png)
 
 ### How to add a new trevor-bot command
 1. Create a new .js file inside /commands/ directory like `/commands/joke.js`
