@@ -14,7 +14,7 @@ You can check out the existing list of commands, functions and games here. Pleas
 
 Some ideas include:
 - Making more types of API calls for !anime
-- More card games to play in channels
+- More games to play in channels
 - Creating more flexibility of choices with the polls
 
 ## Guides
