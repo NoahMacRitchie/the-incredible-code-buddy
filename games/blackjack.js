@@ -94,22 +94,24 @@ class BlackjackInstance extends GameInstance {
 
     let hiddenDealerHand = [...this.dealerHand];
     hiddenDealerHand[hiddenDealerHand.length - 1] = '?';
-    hiddenDealerHand = JSON.stringify(hiddenDealerHand);
 
     let output = '';
     if (this.isTerminal()) {
       if (dealerHandBig <= 21) {
-        output += `Dealer hand: ${dealerHand} (${dealerHandBig})\n`;
+        output += `Dealer hand:\n${this.dealerHand} (${dealerHandBig})\n`;
       } else {
-        output += `Dealer hand: ${dealerHand} (${dealerHandSmall})\n`;
+        output += `Dealer hand:\n${this.dealerHand} (${dealerHandSmall})\n`;
       }
     } else {
-      output += `Dealer hand: ${hiddenDealerHand}\n`;
+      output += `Dealer hand:\n${hiddenDealerHand}\n`;
     }
+
+    output += '\n';
+
     if (handSmall !== handBig && handBig <= 21) {
-      output += `Your hand: ${hand} (${handSmall}/${handBig})\n`;
+      output += `Your hand:\n${this.playerHand} (${handSmall}/${handBig})\n\n`;
     } else {
-      output += `Your hand: ${hand} (${handSmall})\n`;
+      output += `Your hand:\n${this.playerHand} (${handSmall})\n\n`;
     }
 
     if (this.isTerminal()) {
@@ -129,6 +131,7 @@ class BlackjackInstance extends GameInstance {
         : 'Tie :robot_face:';
       output = `${output}${result}`;
     }
+    console.log(output);
     return output;
   }
 
@@ -147,6 +150,7 @@ class BlackjackInstance extends GameInstance {
   getCurrentPlayer() {
     return this.currentPlayer;
   }
+
 }
 
 const startup = (hand, dealerHand, cards) => {

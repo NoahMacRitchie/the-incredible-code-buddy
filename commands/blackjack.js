@@ -1,4 +1,17 @@
+const { MessageEmbed } = require('discord.js');
 const { Blackjack } = require('../games/blackjack');
+
+const embededBuilder = (message, content) => {
+  const embed = new MessageEmbed();
+  embed.setColor('#743873');
+  embed.setTitle('Blackjack🃏');
+
+  embed.setAuthor(message.author.username, message.author.avatarURL());
+  embed.addField(content, '\u200b');
+
+  embed.setTimestamp();
+  return embed;
+};
 
 const STATE = {
   Blackjack: null,
@@ -17,7 +30,7 @@ const gameAction = (message, args) => {
   const discordId = instance.players[playerId];
 
   if (discordId !== message.author.id) {
-    message.reply('You\'re not in a game!');
+    message.reply(embededBuilder(message, 'You\'re not in a game!'));
     return;
   }
 
@@ -28,7 +41,6 @@ const gameAction = (message, args) => {
 
 const gameEnd = (message) => {
   delete STATE.Blackjack.getGame(message.channel.id, message.author.id);
-  message.channel.send('Game over.');
 };
 
 module.exports = {
@@ -40,9 +52,8 @@ module.exports = {
   execute(message, args) {
     if (args.length === 0) {
       gameStart(message);
-      message.reply('Blackjack started!');
       const instance = STATE.Blackjack.getGame(message.channel.id, message.author.id);
-      message.channel.send(instance.stateInformation());
+      message.channel.send(embededBuilder(message, instance.stateInformation()));
       if (instance.isTerminal()) {
         gameEnd(message);
       }
@@ -50,21 +61,21 @@ module.exports = {
     }
     const instance = STATE.Blackjack?.getGame(message.channel.id, message.author.id);
     if (instance == null) {
-      message.reply('Please start a game first! Try \'!blackjack\'.');
+      message.reply(embededBuilder(message, 'Please start a game first! Try \'!blackjack\'.'));
       return;
     }
     switch (args[0]) {
       case 'hit':
       case 'stay':
         gameAction(message, args);
-        message.reply(instance.stateInformation());
+        message.reply(embededBuilder(message, instance.stateInformation()));
 
         if (instance.isTerminal()) {
           gameEnd(message);
         }
         break;
       default:
-        message.reply('That\'s not a valid move! Try \'!blackjack hit\' or \'!blackjack stay\'.');
+        message.reply(embededBuilder(message, 'That\'s not a valid move! Try \'!blackjack hit\' or \'!blackjack stay\'.'));
     }
   },
 };
