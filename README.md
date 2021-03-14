@@ -27,6 +27,7 @@ Throughout 2020, education moved online and multiple, if not all, CST sets began
 - Heroku
 
 ## Contributing
+![Contributing](https://cdn.discordapp.com/attachments/820540696418189312/820554836730576896/unknown.png)
 
 Contributions to the project will go through the contribution process as described in our [contribution guide.](docs/contribute.md)
 
