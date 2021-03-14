@@ -8,7 +8,7 @@ const embededPollBuilder = (message, question, responses) => {
   embededPoll.setTitle(`Poll - ${question}`);
   embededPoll.setAuthor(message.author.username, message.author.avatarURL());
   for (let i = 0; i < responses.length; i++) {
-    embededPoll.addField(`${responses[i].emoji} - ${responses[i].value}`, responses[i].value);
+    embededPoll.addField(`${responses[i].emoji} - ${responses[i].value}`, '\u200b');
   }
   embededPoll.setTimestamp();
   return embededPoll;
@@ -16,7 +16,9 @@ const embededPollBuilder = (message, question, responses) => {
 
 module.exports = {
   name: 'poll',
-  description: 'Create Polls for voting',
+  description: 'Create Poll for the channel to vote on',
+  help: '!poll "[Poll question]" - created a yes/no poll\n'
+   + '"!poll "[Poll question]" [poll option #1]" "[poll option #2]" ... "[poll option #9]" - creates a poll with 1 - 9 options to vote on',
   execute(message, args) {
     if (!args[0]) {
       message.reply('Please specify a question.');
