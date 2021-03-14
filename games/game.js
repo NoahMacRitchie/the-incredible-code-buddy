@@ -1,10 +1,14 @@
 class Game {
-  constructor(players) {
-    this.players = players;
+  constructor() {
+    this._games = {};
   }
 
-  newInstance() {
+  newInstance(channel, players) {
     throw new Error('Not implemented');
+  }
+
+  getGame(channel, player) {
+    return this._games[channel][player];
   }
 }
 
@@ -14,10 +18,6 @@ class GameInstance {
   }
 
   isTerminal() {
-    throw new Error('Not implemented');
-  }
-
-  legalActions() {
     throw new Error('Not implemented');
   }
 
