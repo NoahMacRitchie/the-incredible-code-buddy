@@ -28,7 +28,7 @@ Contributions to the project will go through the contribution process as describ
 
 With regards to the future of this project, the possibilities are endless. As an open-sourced project, any kind of approved contribution can be made to the bot in order for it to grow. Our team wishes that through this process you get to familiarize yourself with Github, its nuances, and practice some development along the way.
 
-You can check out the existing list of commands, functions and games here. Please take a look at what's already been made. Perhaps an idea of an extension or a new command can be born from reading over the existing code. We're welcoming any improvements and new features to our bot.
+You can check out the existing list of commands, functions and games [here](https://github.com/NoahMacRitchie/the-incredible-code-buddy/blob/master/docs/commands.md). Please take a look at what's already been made. Perhaps an idea of an extension or a new command can be born from reading over the existing code. We're welcoming any improvements and new features to our bot.
 
 Some ideas include:
 - Making more types of API calls for !anime
