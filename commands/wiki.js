@@ -29,7 +29,8 @@ async function findInfo(statement) {
 
 module.exports = {
   name: 'wiki',
-  description: 'Wiki!',
+  description: 'Searches for relevent wikipedia page',
+  help: 'Run !wiki followed by your query',
   execute(message, args) {
     // do not run if missing the API key
     if (!process.env.GOOGLE_CREDENTIALS) return;

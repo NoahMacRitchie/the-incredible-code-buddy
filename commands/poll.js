@@ -16,7 +16,9 @@ const embededPollBuilder = (message, question, responses) => {
 
 module.exports = {
   name: 'poll',
-  description: 'Create Polls for voting',
+  description: 'Create Poll for the channel to vote on',
+  help: '!poll "[Poll question]" - created a yes/no poll\n'
+   + '"!poll "[Poll question]" [poll option #1]" "[poll option #2]" ... "[poll option #9]" - creates a poll with 1 - 9 options to vote on',
   execute(message, args) {
     if (!args[0]) {
       message.reply('Please specify a question.');
