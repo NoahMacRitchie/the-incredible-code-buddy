@@ -10,6 +10,8 @@
 - [Commands List](https://github.com/NoahMacRitchie/the-incredible-code-buddy/blob/master/docs/commands.md)
 
 ## About this project
+![help blackjack](https://cdn.discordapp.com/attachments/820540696418189312/820690082301870130/unknown.png)
+
 Code Buddy offers BCIT students an opportunity to take part in an open-sourced project in order to practice software development and online collaboration through Git. It can be tricky to use Git, so this project provides that perfect chance. You can find detailed instructions that guide you through basic Git workflows in our `README` documentation!
 
 ### Why a Discord Bot?
