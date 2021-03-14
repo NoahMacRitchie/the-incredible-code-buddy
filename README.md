@@ -20,6 +20,7 @@ Throughout 2020, education moved online and multiple, if not all, CST sets began
 - Node.js
 - Google Cloud API
 - Jikan API
+- Heroku
 
 ## Contributing
 
