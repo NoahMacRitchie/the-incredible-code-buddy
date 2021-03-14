@@ -31,6 +31,8 @@ module.exports = {
   name: 'wiki',
   description: 'Wiki!',
   execute(message, args) {
+    // do not run if missing the API key
+    if (!process.env.GOOGLE_CREDENTIALS) return;
     const statement = args.join(' ');
     findInfo(statement).then((links) => {
       links.forEach((link) => {

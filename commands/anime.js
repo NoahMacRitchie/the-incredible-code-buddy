@@ -17,6 +17,8 @@ module.exports = {
   name: 'anime',
   description: 'Looks up anime.',
   execute(message, args) {
+    // do not run if missing the API key
+    if (!process.env.ANIME_API_KEY) return;
     if (!args[0]) {
       message.channel.send('To search for anime, type `!anime <search query>`.');
     } else {

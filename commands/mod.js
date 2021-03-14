@@ -26,6 +26,8 @@ module.exports = {
   name: 'mod',
   description: 'Mod!',
   execute(message, args) {
+    // do not run if missing the API key
+    if (!process.env.GOOGLE_CREDENTIALS) return;
     const statement = args.join(' ');
     quickstart(statement).then((comment) => {
       message.channel.send(comment);
