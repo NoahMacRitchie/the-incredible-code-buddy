@@ -10,12 +10,12 @@
 - [Commands List](https://github.com/NoahMacRitchie/the-incredible-code-buddy/blob/master/docs/commands.md)
 
 ## About this project
-![help blackjack](https://cdn.discordapp.com/attachments/820540696418189312/820690082301870130/unknown.png)
+![<img src="image.png" width="100"/>](https://cdn.discordapp.com/attachments/820540696418189312/820690082301870130/unknown.png )
 
 Code Buddy offers BCIT students an opportunity to take part in an open-sourced project in order to practice software development and online collaboration through Git. It can be tricky to use Git, so this project provides that perfect chance. You can find detailed instructions that guide you through basic Git workflows in our `README` documentation!
 
 ### Why a Discord Bot?
-![dice roll](https://cdn.discordapp.com/attachments/820540696418189312/820689390929707018/unknown.png)
+![<img src="image.png" width="100"/>](https://cdn.discordapp.com/attachments/820540696418189312/820689390929707018/unknown.png)
 
 Throughout 2020, education moved online and multiple, if not all, CST sets began to use Discord for communication. Discord Bots enhance a server's experience with the ability to automate messages for various purposes. Our project is geared towards new BCIT CST students by building something on top of what they're already familiar with. Also, the complexity of new ideas to add can be very simple like making a `!joke` command. Because our goal is to get students to try contributing to an Open-Sourced project, we've kept the barriers to entry as low as possible.
 
@@ -27,7 +27,7 @@ Throughout 2020, education moved online and multiple, if not all, CST sets began
 - Heroku
 
 ## Contributing
-![Contributing](https://cdn.discordapp.com/attachments/820540696418189312/820554836730576896/unknown.png)
+![<img src="image.png" width="100"/>](https://cdn.discordapp.com/attachments/820540696418189312/820554836730576896/unknown.png)
 
 Contributions to the project will go through the contribution process as described in our [contribution guide.](docs/contribute.md)
 
