@@ -23,7 +23,6 @@ Some ideas include:
 
 - [How to run locally](docs/run.md)
 - [How to contribute](docs/contribute.md)
-- [List of implemented commands](docs/commands.md)
 
 
 ## License
