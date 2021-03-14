@@ -6,7 +6,7 @@ Code Buddy offers BCIT students an opportunity to take part in an open-sourced p
 
 ## Contributing
 
-Contributions to the project will go through the contribution process as described in the out [contribution guide.](docs/contribute.md)
+Contributions to the project will go through the contribution process as described in our [contribution guide.](docs/contribute.md)
 
 With regards to the future of this project, the possibilities are endless. As an open-sourced project, any kind of approved contribution can be made to the bot in order for it to grow. Our team wishes that through this process you get to familiarize yourself with Github, its nuances, and practice some development along the way.
 
