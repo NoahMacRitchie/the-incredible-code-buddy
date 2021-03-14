@@ -1,18 +1,3 @@
-const fs = require('fs');
-
-const creds = {
-  type: 'service_account',
-  project_id: 'hack-break',
-  private_key_id: '729df7a414a7907a92cab5c0a5c5270667384667',
-  private_key: process.env.GOOGLE_PRIVATE_KEY,
-  client_email: process.env.GOOGLE_CLIENT_EMAIL,
-  auth_uri: 'https://accounts.google.com/o/oauth2/auth',
-  token_uri: 'https://oauth2.googleapis.com/token',
-  auth_provider_x509_cert_url: 'https://www.googleapis.com/oauth2/v1/certs',
-  client_x509_cert_url:
-    'https://www.googleapis.com/robot/v1/metadata/x509/ykwon-176%40hack-break.iam.gserviceaccount.com',
-};
-
 async function quickstart(statement) {
   // Imports the Google Cloud client library
   const language = require('@google-cloud/language');
@@ -41,15 +26,9 @@ module.exports = {
   name: 'mod',
   description: 'Mod!',
   execute(message, args) {
-    fs.writeFile(process.env.GOOGLE_APPLICATION_CREDENTIALS, JSON.stringify(creds), (error) => {
-      if (error) {
-        console.log(error);
-      } else {
-        const statement = args.join(' ');
-        quickstart(statement).then((comment) => {
-          message.channel.send(comment);
-        });
-      }
+    const statement = args.join(' ');
+    quickstart(statement).then((comment) => {
+      message.channel.send(comment);
     });
   },
 };
