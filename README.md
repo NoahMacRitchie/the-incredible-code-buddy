@@ -7,6 +7,7 @@
 - [Join our Discord server to try CodeBuddy](https://discord.gg/bhy2aEje)
 - [Add CodeBuddy to your own server](https://discord.com/api/oauth2/authorize?client_id=820358332103131166&permissions=0&scope=bot)
 - [Report a bug](https://github.com/NoahMacRitchie/the-incredible-code-buddy/issues)
+- [Commands List](https://github.com/NoahMacRitchie/the-incredible-code-buddy/blob/master/docs/commands.md)
 
 ## About this project
 Code Buddy offers BCIT students an opportunity to take part in an open-sourced project in order to practice software development and online collaboration through Git. It can be tricky to use Git, so this project provides that perfect chance. You can find detailed instructions that guide you through basic Git workflows in our `README` documentation!
