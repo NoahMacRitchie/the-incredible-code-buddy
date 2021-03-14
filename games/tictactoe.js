@@ -26,15 +26,22 @@ class TicTacToeInstance extends GameInstance {
 
     applyAction(action) {
         if (action < 0 || action > 9) {
-            throw 'Invalid action!';
+          throw new Error('Invalid action.');
         }
 
-        if (this.board[action] != ' ') {
-            throw 'Invalid action!';
+        if (this.board[action] !== ' ') {
+            throw new Error('Invalid action.');
         }
 
         this.board[action] = this.symbols[this.currentPlayer];
         this.currentPlayer = (this.currentPlayer + 1) % this.numPlayers;
+    }
+
+    isTerminal() {
+        if (this.board.includes('-')) {
+        return false;
+        }
+        return true;
     }
 
     isTerminal() {
@@ -87,7 +94,7 @@ class TicTacToeInstance extends GameInstance {
         output = `${output}\`\`\``
         return output;
     }
-
+    
     messageToAction(message) {
         return parseInt(message);
     }
@@ -98,5 +105,6 @@ class TicTacToeInstance extends GameInstance {
 }
 
 module.exports = {
-    TicTacToe, TicTacToeInstance
-}
+  TicTacToe,
+  TicTacToeInstance,
+};
