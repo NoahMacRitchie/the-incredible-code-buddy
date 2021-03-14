@@ -1,12 +1,17 @@
 const {Game, GameInstance} = require('./game')
 
 class TicTacToe extends Game {
-    constructor(players) {
-        super(players);
+    constructor() {
+        super();
     }
     
-    newInstance() {
-        return new TicTacToeInstance(this.players);
+    newInstance(channel, players) {
+        const gameInstance = new TicTacToeInstance(players);
+        players.forEach((player) => {
+            this._games[channel] = this._games[channel] || {};
+            this._games[channel][player] = gameInstance;
+        });
+        return gameInstance;
     }
 }
 
@@ -37,10 +42,6 @@ class TicTacToeInstance extends GameInstance {
             return false;
         }
         return true;
-    }
-
-    legalActions() {
-        throw 'Not implemented';
     }
 
     stateInformation() {

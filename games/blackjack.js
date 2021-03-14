@@ -1,12 +1,17 @@
 const {Game, GameInstance} = require('./game')
 
 class Blackjack extends Game {
-    constructor(players) {
-        super(players);
+    constructor() {
+        super();
     }
     
-    newInstance() {
-        return new BlackjackInstance(this.players);
+    newInstance(channel, players) {
+        const gameInstance = new BlackjackInstance(players);
+        players.forEach((player) => {
+            this._games[channel] = this._games[channel] || {};
+            this._games[channel][player] = gameInstance;
+        });
+        return gameInstance;
     }
 }
 
@@ -75,10 +80,6 @@ class BlackjackInstance extends GameInstance {
         }
 
         return false;
-    }
-
-    legalActions() {
-        throw 'Not implemented';
     }
 
     stateInformation() {
@@ -169,10 +170,7 @@ const getHandTotal = (hand) => {
         switch(cardVal) {
             case 'A':
                 handSmall++;
-                console.log("A before: ", handBig);
                 handBig += 11;
-                
-                console.log("A after: ", handBig);
                 break;
             case 'J':
             case 'Q':
