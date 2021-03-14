@@ -11,13 +11,17 @@
 
 ### How to add a new trevor-bot command
 1. Create a new .js file inside /commands/ directory like `/commands/joke.js`
-1. Past the following basic snippet:
+1. Refer to the following basic snippet:
 ```
 module.exports = {
   name: 'joke',
   description: 'Tells a funny joke',
+  help: "Run !joke to tell a 'Funny joke haha.'",
   execute(message, args) {
     message.reply('Funny joke haha.');
   },
 };
 ```
+3. Ensure that there is a value `name`, `description`, `help`, as well as the functionality in `execute`. 
+
+* You can refer to [Discord.js](https://discordjs.guide/) for development
