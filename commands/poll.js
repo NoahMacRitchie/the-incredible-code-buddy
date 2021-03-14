@@ -8,7 +8,7 @@ const embededPollBuilder = (message, question, responses) => {
   embededPoll.setTitle(`Poll - ${question}`);
   embededPoll.setAuthor(message.author.username, message.author.avatarURL());
   for (let i = 0; i < responses.length; i++) {
-    embededPoll.addField(`${responses[i].emoji} - ${responses[i].value}`, responses[i].value);
+    embededPoll.addField(`${responses[i].emoji} - ${responses[i].value}`, '\u200b');
   }
   embededPoll.setTimestamp();
   return embededPoll;
