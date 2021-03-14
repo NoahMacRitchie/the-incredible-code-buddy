@@ -21,6 +21,13 @@ Some ideas include:
 - More card games to play in channels
 - Creating more flexibility of choices with the polls
 
+## Guides
+
+- [How to run locally](docs/run.md)
+- [How to contribute](docs/contribute.md)
+- [List of implemented commands](docs/commands.md)
+
+
 ## License
 
 Distributed under the MIT License. See `LICENSE` for more information.
