@@ -46,8 +46,8 @@ const gameEnd = (message) => {
 module.exports = {
   name: 'blackjack',
   description: 'Play a game of black jack against the dealer',
-  help: '!blackjack - starts blackjack game'
-    + '!blackjack hit - dealer will give you another card (game must be started)'
+  help: '!blackjack - starts blackjack game\n'
+    + '!blackjack hit - dealer will give you another card (game must be started)\n'
     + '!blackjack stay - dealer reveal their cards (game must be started)',
   execute(message, args) {
     if (args.length === 0) {

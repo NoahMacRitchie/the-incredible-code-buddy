@@ -13,7 +13,7 @@ module.exports = {
   name: 'diceroll',
   description: 'Rolls a dice.',
   help: '!diceroll - rolls regular 6 sided dices\n'
-   + '!diceroll [Positive-Integer N] - rolls N sided die'
+   + '!diceroll [Positive-Integer N] - rolls N sided die\n'
    + '!diceroll [Positive-Integer M] [Positive-Integer N] - rolls N sided die M times',
   execute(message, args) {
     // error checking: argument(s) are a number.

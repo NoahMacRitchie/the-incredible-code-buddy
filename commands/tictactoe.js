@@ -43,7 +43,7 @@ const gameAction = (message, args) => {
 };
 
 const gameEnd = (message) => {
-  const opponent = STATE.TicTacToe.getGame(message.channel.id, message.author.id).opponent;
+  const { opponent } = STATE.TicTacToe.getGame(message.channel.id, message.author.id);
 
   delete STATE.TicTacToe.getGame(message.channel.id, opponent).gameInstance;
   delete STATE.TicTacToe.getGame(message.channel.id, message.author.id).gameInstance;
@@ -54,7 +54,7 @@ const gameEnd = (message) => {
 module.exports = {
   name: 'ttt',
   description: 'Play a game of TicTacToe with a friend',
-  help: '!ttt start [@player1] [@player2] - Starts a game of TicTacToe between player1 & player 2'
+  help: '!ttt start [@player1] [@player2] - Starts a game of TicTacToe between player1 & player 2\n'
   + '!ttt a [0-8] - Attempts to make move on a cell',
   execute(message, args) {
     const players = Array.from(message.mentions.users.keys());
