@@ -1,6 +1,6 @@
 # TICB - The Incredible Code Buddy
 
-- [Join our server to try CodeBuddy](https://discord.com/api/oauth2/authorize?client_id=820358332103131166&permissions=0&scope=bot)
+- [Join our server to try CodeBuddy](https://discord.gg/bhy2aEje)
 - [Add CodeBuddy to your own server](https://discord.com/api/oauth2/authorize?client_id=820358332103131166&permissions=0&scope=bot)
 
 ## About this project
