@@ -1,61 +1,58 @@
-const {Game, GameInstance} = require('./game')
-
-class TicTacToe extends Game {
-    constructor(players) {
-        super(players);
-    }
-    
-    newInstance() {
-        return new TicTacToeInstance(this.players);
-    }
-}
+const { Game, GameInstance } = require('./game');
 
 class TicTacToeInstance extends GameInstance {
-    constructor(players) {
-        super(players);
-        this.board = ['-', '-', '-', '-', '-', '-', '-', '-', '-']
-        this.symbols = ['X', 'O']
-        this.currentPlayer = 0;
-        this.numPlayers = this.players.length
+  constructor(players) {
+    super(players);
+    this.board = ['-', '-', '-', '-', '-', '-', '-', '-', '-'];
+    this.symbols = ['X', 'O'];
+    this.currentPlayer = 0;
+    this.numPlayers = this.players.length;
+  }
+
+  applyAction(action) {
+    if (action < 0 || action > 9) {
+      throw new Error('Invalid action.');
     }
 
-    applyAction(action) {
-        if (action < 0 || action > 9) {
-            throw 'Invalid action!';
-        }
-
-        if (this.board[action] != '-') {
-            throw 'Invalid action!';
-        }
-
-        this.board[action] = this.symbols[this.currentPlayer];
-        this.currentPlayer = (this.currentPlayer + 1) % this.numPlayers;
+    if (this.board[action] !== '-') {
+      throw new Error('Invalid action.');
     }
 
-    isTerminal() {
-        if (this.board.includes('-')) {
-            return false;
-        }
-        return true;
-    }
+    this.board[action] = this.symbols[this.currentPlayer];
+    this.currentPlayer = (this.currentPlayer + 1) % this.numPlayers;
+  }
 
-    legalActions() {
-        throw 'Not implemented';
+  isTerminal() {
+    if (this.board.includes('-')) {
+      return false;
     }
+    return true;
+  }
 
-    stateInformation() {
-        return JSON.stringify(this.board);
-    }
+  legalActions() {
+    throw new Error('Not implemented');
+  }
 
-    messageToAction(message) {
-        return parseInt(message);
-    }
+  stateInformation() {
+    return JSON.stringify(this.board);
+  }
 
-    getCurrentPlayer() {
-        return this.currentPlayer;
-    }
+  messageToAction(message) {
+    return parseInt(message);
+  }
+
+  getCurrentPlayer() {
+    return this.currentPlayer;
+  }
+}
+
+class TicTacToe extends Game {
+  newInstance() {
+    return new TicTacToeInstance(this.players);
+  }
 }
 
 module.exports = {
-    TicTacToe, TicTacToeInstance
-}
+  TicTacToe,
+  TicTacToeInstance,
+};

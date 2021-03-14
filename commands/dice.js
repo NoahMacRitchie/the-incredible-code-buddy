@@ -18,7 +18,8 @@ module.exports = {
       if (!isNormalInteger(args[0])) {
         message.channel.send('Arguments must use positive numbers, baka!');
         return;
-      } if (args[1]) {
+      }
+      if (args[1]) {
         if (!isNormalInteger(args[1])) {
           message.channel.send('Arguments must use positive numbers, baka!');
           return;
