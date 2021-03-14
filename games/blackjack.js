@@ -150,6 +150,7 @@ class BlackjackInstance extends GameInstance {
   getCurrentPlayer() {
     return this.currentPlayer;
   }
+
 }
 
 const startup = (hand, dealerHand, cards) => {

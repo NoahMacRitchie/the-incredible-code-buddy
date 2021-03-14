@@ -1,5 +1,19 @@
 const { TicTacToe } = require('../games/tictactoe');
 
+const { MessageEmbed } = require('discord.js');
+
+const embededBuilder = (message, content) => {
+  const embed = new MessageEmbed();
+  embed.setColor('#743873');
+  embed.setTitle(`TicTacToe \:x:  \:o:`);
+
+  embed.setAuthor(message.author.username, message.author.avatarURL());
+  embed.addField(content, '\u200b');
+  
+  embed.setTimestamp();
+  return embed;
+};
+
 const STATE = {
   TicTacToe: null,
 };
@@ -31,7 +45,7 @@ const gameAction = (message, args) => {
 
 const gameEnd = (message) => {
   delete STATE.TicTacToe.getGame(message.channel.id, message.author.id);
-  message.channel.send('Game over.');
+  message.channel.send(embededBuilder(message, 'Game over.'));
 };
 
 module.exports = {
@@ -42,7 +56,7 @@ module.exports = {
       gameStart(message);
       message.reply('Tic Tac Toe started!');
       const instance = STATE.TicTacToe.getGame(message.channel.id, message.author.id);
-      message.channel.send(instance.stateInformation());
+      message.channel.send(embededBuilder(message, instance.stateInformation()));
       if (instance.isTerminal()) {
         gameEnd(message);
       }
@@ -51,7 +65,7 @@ module.exports = {
 
     const instance = STATE.TicTacToe?.getGame(message.channel.id, message.author.id);
     if (instance == null) {
-      message.reply(`Please start a game first! Try '!ttt @<UserID> @<UserID>'.`);
+      message.reply(embededBuilder(message, `Please start a game first! Try '!ttt @<UserID> @<UserID>'.`));
       return;
     }
 
@@ -59,13 +73,14 @@ module.exports = {
       case 'a':
       case 'action':
         gameAction(message, args);
-        message.channel.send(instance.stateInformation());
+        message.channel.send(embededBuilder(message, instance.stateInformation()));
+
         if (instance.isTerminal()) {
           gameEnd(message);
         }
         break;
       default:
-        message.reply(`That's not a valid move! Try '!ttt action <Position>'.`);
+        message.reply(embededBuilder(message, `That's not a valid move! Try '!ttt action <Position>'.`));
         break;
     }
   },
