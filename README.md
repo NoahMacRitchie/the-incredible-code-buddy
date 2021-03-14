@@ -2,11 +2,7 @@
 [Report Bug](https://github.com/NoahMacRitchie/trevor-bot/issues) - [Request Feature](https://github.com/NoahMacRitchie/trevor-bot/issues)
 
 ## About this project
-Trevor-bot offers BCIT students an opportunity to take part in an open-sourced project in order to practice software development and online collaboration through Git. It can be tricky to use Git, so this project provides that perfect chance. You can find detailed instructions that guide you through basic git workflows in our readme documentation!
-
-<p align="center">
-<img src="https://cdn.discordapp.com/attachments/820141818712293379/820521479698513920/unknown.png">
-</p>
+Code Buddy offers BCIT students an opportunity to take part in an open-sourced project in order to practice software development and online collaboration through Git. It can be tricky to use Git, so this project provides that perfect chance. You can find detailed instructions that guide you through basic git workflows in our readme documentation!
 
 ## Contributing
 
