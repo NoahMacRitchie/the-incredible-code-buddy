@@ -7,6 +7,7 @@
 1. Push your changes to your local branch `git push --set-upstream`
 1. Back on github, start a new pull request on your repo
 1. Make sure you choose `NoahMacRitchie/trevor-bot` as the base repository ![img](https://cdn.discordapp.com/attachments/820540696418189312/820554940783001610/unknown.png)
+1. Lastly, update [`docs/commands.md`](https://cdn.discordapp.com/attachments/820141818712293379/820685725585637416/unknown.png) with whatever new command(s) you added.
 
 ### How to add a new trevor-bot command
 1. Create a new .js file inside /commands/ directory like `/commands/joke.js`
