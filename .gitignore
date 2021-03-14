@@ -1,6 +1,10 @@
 /node_modules
+<<<<<<< HEAD
 
 /config.json
 *.json
 
 
+=======
+.eslintcache
+>>>>>>> 1dcfe5fb097ce538bf04cbca6f450e98f70b66c6
