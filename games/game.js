@@ -3,7 +3,7 @@ class Game {
     this._games = {};
   }
 
-  newInstance(players, channel) {
+  newInstance(channel, players) {
     throw new Error('Not implemented');
   }
 

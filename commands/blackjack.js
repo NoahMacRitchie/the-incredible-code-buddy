@@ -1,8 +1,8 @@
+const { Blackjack } = require('../games/blackjack');
+
 const STATE = {
   Blackjack: null,
 };
-
-const { Blackjack } = require('../games/blackjack');
 
 const gameStart = (message) => {
   if (STATE.Blackjack == null) {

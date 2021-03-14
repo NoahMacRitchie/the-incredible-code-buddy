@@ -1,8 +1,8 @@
+const { TicTacToe } = require('../games/tictactoe');
+
 const STATE = {
   TicTacToe: null,
 };
-
-const { TicTacToe } = require('../games/tictactoe');
 
 const gameStart = (message) => {
   if (STATE.TicTacToe == null) {
